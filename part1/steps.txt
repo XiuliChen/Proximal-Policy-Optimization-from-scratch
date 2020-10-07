@@ -5,3 +5,6 @@ create ppo.py
 create network.py
 	A neural network module to use to define our Actor/Critic networks in the PPO model. 
 	It contains a simple Feed-Forward Neural Network.
+
+	# For now, we use the simple Feed-Forward Neural Network for our actor/critic networks
+		# In future versions, we will add an policy_type variable for the PPO class
