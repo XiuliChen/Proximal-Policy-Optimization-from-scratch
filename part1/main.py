@@ -1,7 +1,7 @@
 import gym
 
 from ppo import PPO
-from network import FeedForwardNN
+
 
 
 # Similar format as stable baselines
@@ -11,7 +11,7 @@ from network import FeedForwardNN
 env=gym.make('Pendulum-v0')
 
 # set RL method
-model=PPO(env=env)
+model=PPO(env)
 
 # start training
-model.learn(total_timesteps=100000)
+model.learn(total_num_steps=100000)
