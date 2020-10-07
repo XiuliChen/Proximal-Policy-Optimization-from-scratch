@@ -1,0 +1,9 @@
+> Some background: olicy gradient algorithms typically have two steps. 
+	> In the first step, transitions are gathered. 
+	> In the second step the policy is improved. 
+	> There are two main issues: how much experience should the agent gather before updating the policy and how to actually update the old policy to the new policy.
+
+> therefore, the first step is to collect experience
+
+> ppo.py: add collect_experience
+
