@@ -1,0 +1,7 @@
+git config user.name "XiuliChen"
+git config user.email "xxxx"
+
+cd .../PPO_from_scratch
+git init
+
+
