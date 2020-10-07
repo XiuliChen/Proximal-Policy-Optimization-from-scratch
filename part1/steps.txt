@@ -1,0 +1,7 @@
+create main.py
+	create a PPO obeject and call the ppo.learn()
+create ppo.py
+	Step1: define our initial policy (actor); and value function (critic)
+create network.py
+	A neural network module to use to define our Actor/Critic networks in the PPO model. 
+	It contains a simple Feed-Forward Neural Network.
