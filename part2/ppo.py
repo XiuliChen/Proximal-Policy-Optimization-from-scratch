@@ -18,5 +18,14 @@ class PPO:
 		self.actor=FeedforwardNN(self.obs_dim,self.action_dim)
 		self.critic=FeedforwardNN(self.obs_dim,1)
 
+	def collect_experience(self):
+		# collect a batch of data
+		batch_obs=[] # num_step_per_batch x obs_dim
+		batch_acts=[] # num_step_per_batch x act_dim
+		batch_log_probs=[] # num_step_per_batch
+		batch_rews=[] # num_step_per_batch
+		batch_rtgs=[] # num_step_per_batch
+		batch_epi_lens=[] # episode length for each episode
+
 	def learn(self, total_num_steps):
 		pass
