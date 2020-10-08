@@ -13,5 +13,7 @@ env=gym.make('Pendulum-v0')
 # set RL method
 model=PPO(env)
 
+model.collect_experience()
+
 # start training
 model.learn(total_num_steps=100000)
