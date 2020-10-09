@@ -46,8 +46,9 @@ class PPO:
 		batch_acts=[] # num_step_per_batch x act_dim
 		batch_log_probs=[] # num_step_per_batch
 		batch_rews=[] # num_step_per_episode x num of episodes
-		batch_rtgs=[] # num_step_per_batch
 		batch_eps_lens=[] # num of episodes 
+
+		batch_rtgs=[] # num_step_per_batch
 
 		# We need to specify the total number of steps in learn()
 		# when collecting the transition, we need to specify how many
@@ -73,7 +74,11 @@ class PPO:
 			# collect episode reward and length
 			batch_rews.append(eps_rew)
 			batch_eps_lens.append(eps_t+1)
-		print(batch_eps_lens)
+
+
+	def compute_rtg(self,batch_rews):
+		batch_rtgs=[]
+
 
 
 	def choose_action(self,obs):

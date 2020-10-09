@@ -6,22 +6,26 @@
 > therefore, the first step is to collect experience
 
 > ppo.py: add collect_experience
-	> def collect_experience()
 	> def _init_hyperparameter()
-	> def choose_action()
-		'''
-		Two most common kinds of stochastic policies in deep RL: categorical policies and 
-		diagonal gaussian policies
-		(1) categorical policies (for discrete action space): the final layer gives you logits 
-		for each action, followed by a softmax to convert the logits into probabilities.
-		(2) Diagonal gaussian policies (for continous action space): A neural network maps from
-		observations to mean actions
 
-		The actor network output a “mean” action on a forward pass, 
-		then create a covariance matrix with some standard deviation along the diagonals. 
-		Then, we can use this mean and stddev to generate a Multivariate Normal Distribution 
-		using PyTorch’s distributions, 
-		and then sample an action close to our mean. 
-		We’ll also extract the log probability of that action in the distribution.
-		'''
+	> def collect_experience()
+	
+		> def choose_action()
+			'''
+			Two most common kinds of stochastic policies in deep RL: categorical policies and 
+			diagonal gaussian policies
+			(1) categorical policies (for discrete action space): the final layer gives you logits 
+			for each action, followed by a softmax to convert the logits into probabilities.
+			(2) Diagonal gaussian policies (for continous action space): A neural network maps from
+			observations to mean actions
+
+			The actor network output a “mean” action on a forward pass, 
+			then create a covariance matrix with some standard deviation along the diagonals. 
+			Then, we can use this mean and stddev to generate a Multivariate Normal Distribution 
+			using PyTorch’s distributions, 
+			and then sample an action close to our mean. 
+			We’ll also extract the log probability of that action in the distribution.
+			'''
+		> compute reward to go
+			the discount parameter gamma
 
