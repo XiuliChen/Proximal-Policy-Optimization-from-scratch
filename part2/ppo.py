@@ -39,6 +39,7 @@ class PPO:
 		self.max_timesteps_per_episode=5
 		# for diagonal gaussian policy (choose 0.5 arbitraiily)
 		self.covariance_std=0.5
+		self.gamma=0.99
 
 	def collect_experience(self):
 		# collect a batch of data (shape)
@@ -77,7 +78,19 @@ class PPO:
 
 
 	def compute_rtg(self,batch_rews):
+		# for each step, we calculate sum of the discounted reward till the end of the episode.
+
 		batch_rtgs=[]
+
+		for eps_rews in batch_rews:
+
+			discounted_reward=0
+			for rew in reversed(eps_rews):
+				discounted_reward=rew+discounted_reward*self.gamma
+				batch_rtgs.insert(0,discounted_reward)
+			
+
+
 
 
 
