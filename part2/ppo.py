@@ -76,6 +76,17 @@ class PPO:
 			batch_rews.append(eps_rew)
 			batch_eps_lens.append(eps_t+1)
 
+		batch_obs=torch.tensor(batch_obs,dtype=torch.float)
+		batch_acts=torch.tensor(batch_acts,dtype=torch.float)
+		batch_log_probs=torch.tensor(batch_log_probs,dtype=torch.float)
+		batch_eps_lens=torch.tensor(batch_eps_lens,dtype=torch.float)
+
+		batch_rtgs=self.compute_rtg(batch_rews)
+
+		return batch_obs,batch_acts,batch_log_probs,batch_rtgs,batch_eps_lens
+
+
+
 
 	def compute_rtg(self,batch_rews):
 		# for each step, we calculate sum of the discounted reward till the end of the episode.
@@ -128,4 +139,5 @@ class PPO:
 
 
 	def learn(self, total_num_steps):
-		pass
+		
+		batch_obs,batch_acts,batch_log_probs,batch_rtgs,batch_eps_lens= self.collect_experience()
