@@ -82,14 +82,16 @@ class PPO:
 
 		batch_rtgs=[]
 
-		for eps_rews in batch_rews:
+		for eps_rews in reversed(batch_rews):
 
 			discounted_reward=0
 			for rew in reversed(eps_rews):
 				discounted_reward=rew+discounted_reward*self.gamma
 				batch_rtgs.insert(0,discounted_reward)
-			
 
+		batch_rtgs=torch.tensor(batch_rtgs,dtype=torch.float)
+
+		return batch_rtgs
 
 
 
